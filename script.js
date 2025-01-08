@@ -282,7 +282,7 @@ document.addEventListener("DOMContentLoaded", function () {
     div.innerHTML = `
       <h3 class="font-semibold text-lg">${wish.name}</h3>
       <p class="text-sm text-black/90 mt-2">${wish.message}</p>
-      <p class="!important text-black/40 text-[10px] mt-2">${formattedDate} pukul ${formattedTime}</p>
+      <p class="text-gray-300 text-[10px] mt-2">${formattedDate} pukul ${formattedTime}</p>
     `;
     return div;
   }
