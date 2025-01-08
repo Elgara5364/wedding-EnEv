@@ -260,7 +260,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Function to create wish element
   function createWishElement(wish) {
     const div = document.createElement("div");
-    div.className = "bg-white px-4 rounded-lg shadow";
+    div.className = "bg-white px-4 pt-1 pb-3 rounded-lg shadow";
 
     // Parse the timestamp
     const date = new Date(wish.timestamp);
