@@ -5,6 +5,47 @@ window.addEventListener("beforeunload", function () {
 
 window.addEventListener("DOMContentLoaded", function () {
   window.scrollTo(0, 0); // Paksa posisi scroll ke atas setelah DOM selesai dimuat
+
+  const title = document.getElementById("title");
+  const navigation = document.getElementById("navigation");
+  const hamburger = document.getElementById("hamburger");
+  const sections = ["time-countdown", "streaming"];
+
+  const observerOptions = {
+    root: null, // Use the viewport as the root
+    rootMargin: "0px 0px -620px 0px",
+    threshold: 0.1,
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        // If the section is in view, add the class to change text color
+        hamburger.classList.remove("text-gray-900");
+        hamburger.classList.add("text-white");
+        title.classList.remove("text-gray-900");
+        title.classList.add("text-white");
+        navigation.classList.remove("text-gray-900");
+        navigation.classList.add("text-white");
+      } else {
+        hamburger.classList.add("text-gray-900");
+        hamburger.classList.remove("text-white");
+        title.classList.add("text-gray-900");
+        // If the section is not in view, remove the class
+        title.classList.remove("text-white");
+        navigation.classList.add("text-gray-900");
+        navigation.classList.remove("text-white");
+      }
+    });
+  }, observerOptions);
+
+  // Observe each section
+  sections.forEach((sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      observer.observe(section);
+    }
+  });
 });
 
 // Script untuk membuka undangan dan mengizinkan scroll
@@ -14,6 +55,57 @@ document.getElementById("buka-undangan").addEventListener("click", function () {
   document.getElementById("home").scrollIntoView({ behavior: "smooth" }); // Scroll ke konten
   // Memberi waktu untuk memastikan overflow diterapkan
 });
+
+//NAVBAR fn
+const hamburger = document.getElementById("hamburger");
+const menu = document.getElementById("menu");
+const overlay = document.getElementById("overlay");
+const sidebar = document.getElementById("sidebar");
+const closeMenu = document.getElementById("close-menu");
+
+// Open menu
+hamburger.addEventListener("click", () => {
+  menu.classList.remove("hidden");
+  document.body.classList.add("overflow-hidden");
+
+  // Apply transition
+  setTimeout(() => {
+    overlay.classList.remove("opacity-0");
+    overlay.classList.add("opacity-100");
+    sidebar.classList.remove("translate-x-full");
+    sidebar.classList.add("translate-x-0");
+  }, 10);
+});
+
+/// Close menu
+overlay.addEventListener("click", closeSidebar);
+closeMenu.addEventListener("click", closeSidebar);
+
+function closeSidebar() {
+  // Reverse transition
+  overlay.classList.remove("opacity-100");
+  overlay.classList.add("opacity-0");
+  sidebar.classList.remove("translate-x-0");
+  sidebar.classList.add("translate-x-full");
+
+  // Hide menu after transition ends
+  setTimeout(() => {
+    menu.classList.add("hidden");
+    document.body.classList.remove("overflow-hidden");
+  }, 300);
+}
+
+//when scroll show
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 50) {
+    navbar.classList.remove("backdrop-blur-sm", "text-white");
+    navbar.classList.add("bg-[#e9e5e0]", "text-gray-100");
+  } else {
+    navbar.classList.remove("bg-transparent", "text-gray-100");
+    navbar.classList.add("bg-transparent");
+  }
+});
+// NAVBAR fn
 
 //COUNTDOWN TIME FUNC
 const targetDate = new Date("2025-01-25T16:00:00");
@@ -280,9 +372,9 @@ document.addEventListener("DOMContentLoaded", function () {
     // Include the formatted date and time in the HTML
 
     div.innerHTML = `
-      <h3 class="font-semibold text-lg">${wish.name}</h3>
-      <p class="text-sm text-black/90 mt-2">${wish.message}</p>
-      <p class="text-gray-300 text-[10px] mt-2">${formattedDate} pukul ${formattedTime}</p>
+      <h4 class="font-semibold">${wish.name}</h4>
+      <h5 class=" text-black mt-2">${wish.message}</h5>
+      <h6 class="text-gray-300  mt-2">${formattedDate} pukul ${formattedTime}</h6>
     `;
     return div;
   }

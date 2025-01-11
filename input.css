@@ -8,6 +8,9 @@
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
 .slider-container {
   scroll-snap-type: x mandatory;
   overflow-x: hidden;
@@ -30,16 +33,20 @@ h2 {
 }
 
 h3 {
-  font-size: clamp(30px, 9vw + 50%, 4rem);
+  font-size: clamp(30px, 8vw + 50%, 4rem);
 }
 
 h4 {
-  font-size: clamp(20px, 3vw + 50%, 25px);
+  font-size: clamp(20px, 4vw + 50%, 25px);
   /* font-weight: 300; */
 }
 
 h5 {
   font-size: clamp(15px, 3vw + 50%, 20px);
+  font-weight: 300;
+}
+h6 {
+  font-size: clamp(10px, 1vw + 50%, 15px);
   font-weight: 300;
 }
 
