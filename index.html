@@ -17,9 +17,9 @@
       <image
         src="./img/frame.jpg"
         alt="enzoevan"
-        class="w-full h-screen object-contain relative">
+        class="w-full h-screen object-contain relative animate-fade">
         <div
-          class="absolute top-1/2 left-1/2 -translate-x-1/2 gap-6 -translate-y-1/2 flex flex-col justify-center items-center w-full text-center">
+          class="absolute top-1/2 left-1/2 -translate-x-1/2 gap-6 -translate-y-1/2 flex flex-col justify-center items-center w-full text-center animate-fade">
           <div class="text-xl">
             <h4>Yth</h4>
             <h4>Keluarga Loardi</h4>
@@ -167,7 +167,8 @@
     <section id="home" class="bg-texture">
       <!-- MEMPELAI SECTION START -->
       <div class="py-5 mx-auto">
-        <h2 class="font-greatVibes tracking-wider flex justify-center my-5">
+        <h2
+          class="font-greatVibes tracking-wider flex justify-center my-5 mempelai transition-transform duration-[2000ms] ease-in">
           Mempelai
         </h2>
         <div class="sm:flex max-w-6xl mx-auto">
@@ -178,12 +179,12 @@
             <div class="absolute top-10">
               <image
                 src="./img/frame2.png"
-                class="mx-auto w-1/2 lg:w-4/6 rounded-full mb-3"></image>
+                class="mx-auto w-1/2 lg:w-4/6 rounded-full mb-3 bride-img transition-transform duration-[2000ms] ease-in"></image>
               <h3
-                class="font-greatVibes sm:text-3xl md:text-4xl lg:text-6xl px-20 lg:px-28 lg:leading-tight sm:mb-3">
+                class="font-greatVibes sm:text-3xl md:text-4xl lg:text-6xl px-20 lg:px-28 lg:leading-tight sm:mb-3 bride">
                 Anugerah Enzo Biu Pascoal
               </h3>
-              <div class="*:sm:text-base *:md:text-xl">
+              <div class="*:sm:text-base *:md:text-xl bride">
                 <p>Putra dari</p>
                 <p>Bpk Semuel Pascoal</p>
                 <p>&</p>
@@ -200,12 +201,12 @@
             <div class="absolute top-10">
               <image
                 src="./img/frame2.png"
-                class="mx-auto w-1/2 lg:w-4/6 rounded-full mb-3"></image>
+                class="mx-auto w-1/2 lg:w-4/6 rounded-full mb-3 groom-img transition-transform duration-[2000ms] ease-in"></image>
               <h3
-                class="font-greatVibes sm:text-3xl md:text-4xl lg:text-6xl px-20 lg:px-28 lg:leading-tight sm:mb-3">
-                Evanny Andi Lolo
+                class="font-greatVibes sm:text-3xl md:text-4xl lg:text-6xl px-24 lg:leading-tight sm:mb-3 groom">
+                Evanny Andi <br />Lolo
               </h3>
-              <div class="*:sm:text-base *:md:text-xl">
+              <div class="*:sm:text-base *:md:text-xl groom">
                 <p>Putri dari</p>
                 <p>Bpk Mus Palimbongan</p>
                 <p>&</p>
@@ -226,7 +227,9 @@
           Menuju 25 Januari 2025, pukul 16:00 WITA
         </h3>
         <div class="flex flex-col items-center text-[#f0f1ef]">
-          <div id="countdown" class="text-6xl font-bold font-greatVibes"></div>
+          <div
+            id="countdown"
+            class="text-6xl font-bold font-greatVibes scale-0 transition-transform duration-1000"></div>
           <p
             id="countdown-label"
             class="text-2xl mt-2 uppercase font-semibold"></p>
@@ -240,7 +243,8 @@
     <!-- HITUNG MUNDUR SECTION END -->
 
     <section id="gallery" class="pt-5">
-      <h2 class="font-greatVibes tracking-wider flex justify-center my-5">
+      <h2
+        class="font-greatVibes tracking-wider flex justify-center py-5 gallery-title transition-transform duration-[2000ms] ease-in">
         Galeri Foto
       </h2>
       <div class="relative w-full max-w-4xl h-96 mx-auto">
@@ -287,7 +291,8 @@
     <!-- Form Start -->
     <section class="py-4 bg-texture" id="wedding-wishes">
       <div class="p-6 rounded-lg shadow-md max-w-3xl mx-auto w-full">
-        <h2 class="text-center font-greatVibes tracking-widertext-black mb-4">
+        <h2
+          class="text-center font-greatVibes tracking-widertext-black mb-4 wishes-title transition-transform duration-[2000ms] ease-in">
           Wedding Wishes
         </h2>
         <form id="wishForm" class="space-y-4">
@@ -334,7 +339,8 @@
     <section class="bg-texture2 py-5 pt-7" id="streaming">
       <div
         class="mx-2 py-2 h-fit shadow-lg text-center border-2 border-[#414141] rounded">
-        <h2 class="font-greatVibes tracking-wider mb-4 text-center text-white">
+        <h2
+          class="font-greatVibes tracking-wider mb-4 text-center text-white streaming-title transition-transform duration-[1700ms] ease-in">
           Join Streaming
         </h2>
         <div class="w-full text-white">
@@ -354,15 +360,15 @@
     <!-- Join Streamin via Zoom End -->
 
     <!-- Thank You section -->
-    <section class="shadow-md">
+    <section class="shadow-md" id="thank-you">
       <div class="relative max-w-6xl mx-auto">
         <image src="./img/frame3.png" class="mx-auto z-20"></image>
         <div class="absolute top-20 text-center">
           <image
             src="./img/the-new-york-public-library-jEeNj2q-14o-unsplash.jpg"
             class="rounded-full w-1/2 lg:w-4/12 mt-5 mx-auto"></image>
-          <h2 class="font-greatVibes mb-2">Terima Kasih</h2>
-          <h4 class="mx-auto w-3/4 px-5 max-w-md">
+          <h2 class="font-greatVibes mb-2 thanks">Terima Kasih</h2>
+          <h4 class="mx-auto w-3/4 px-5 max-w-md thanks">
             Karena sudah bersedia menghadiri acara kami.
           </h4>
         </div>

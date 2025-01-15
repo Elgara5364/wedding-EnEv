@@ -6,6 +6,7 @@ window.addEventListener("beforeunload", function () {
 window.addEventListener("DOMContentLoaded", function () {
   window.scrollTo(0, 0); // Paksa posisi scroll ke atas setelah DOM selesai dimuat
 
+  // NAV SECT
   const title = document.getElementById("title");
   const navigation = document.getElementById("navigation");
   const hamburger = document.getElementById("hamburger");
@@ -13,7 +14,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
   const observerOptions = {
     root: null, // Use the viewport as the root
-    rootMargin: "0px 0px -620px 0px",
+    rootMargin: "0px 0px -620px 0px ",
     threshold: 0.1,
   };
 
@@ -46,6 +47,165 @@ window.addEventListener("DOMContentLoaded", function () {
       observer.observe(section);
     }
   });
+
+  // HOME AND THANKYU SECT
+  const bride = document.querySelectorAll(".bride");
+  const brideImg = document.querySelector(".bride-img");
+  const thanks = document.querySelectorAll(".thanks");
+  const groom = document.querySelectorAll(".groom");
+  const groomImg = document.querySelector(".groom-img");
+  const mempelai = document.querySelector(".mempelai");
+
+  const sections2 = ["home", "wedding-wishes", "thank-you"];
+
+  const observerOptions2 = {
+    root: null, // Use the viewport as the root
+    rootMargin: "0px 0px 0px 0px",
+    threshold: 0.2,
+  };
+
+  const observer2 = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      for (let i = 0; i < bride.length; i++) {
+        if (entry.isIntersecting) {
+          // If the section is in view, add the class to change text color
+          mempelai.classList.remove("scale-0");
+          mempelai.classList.add("scale-100");
+          brideImg.classList.remove("scale-0");
+          brideImg.classList.add("scale-100");
+          groomImg.classList.remove("scale-0");
+          groomImg.classList.add("scale-100");
+          bride[i].classList.remove("opacity-0");
+          bride[i].classList.add("animate-fade");
+          bride[i].classList.add("opacity-100");
+          groom[i].classList.remove("opacity-0");
+          groom[i].classList.add("animate-fade");
+          groom[i].classList.add("opacity-100");
+          thanks[i].classList.remove("opacity-0");
+          thanks[i].classList.add("animate-fade");
+          thanks[i].classList.add("opacity-100");
+        } else {
+          mempelai.classList.remove("scale-100");
+          mempelai.classList.add("scale-0");
+          brideImg.classList.add("scale-0");
+          brideImg.classList.add("scale-0");
+          groomImg.classList.remove("scale-100");
+          groomImg.classList.add("scale-0");
+          bride[i].classList.remove("animate-fade");
+          bride[i].classList.remove("opacity-100");
+          bride[i].classList.add("opacity-0");
+          groom[i].classList.remove("animate-fade");
+          groom[i].classList.remove("opacity-100");
+          groom[i].classList.add("opacity-0");
+          thanks[i].classList.remove("animate-fade");
+          thanks[i].classList.remove("opacity-100");
+          thanks[i].classList.add("opacity-0");
+        }
+      }
+    });
+  }, observerOptions2);
+
+  sections2.forEach((sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      observer2.observe(section);
+    }
+  });
+});
+
+//COUNTDOWN AND STREAMING
+const countdown = document.getElementById("countdown");
+const streamingTitle = document.querySelector(".streaming-title");
+
+const sections3 = ["home", "countdown", "streaming"];
+
+const observerOptions3 = {
+  root: null, // Use the viewport as the root
+  rootMargin: "0px 0px 0px 0px",
+  threshold: 0.5,
+};
+
+const observer3 = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      countdown.classList.remove("scale-0");
+      countdown.classList.add("scale-100");
+
+      streamingTitle.classList.remove("scale-0");
+      streamingTitle.classList.add("scale-100");
+    } else {
+      countdown.classList.remove("scale-100");
+      countdown.classList.add("scale-0");
+
+      streamingTitle.classList.remove("scale-100");
+      streamingTitle.classList.add("scale-0");
+    }
+  });
+}, observerOptions3);
+
+sections3.forEach((sectionId) => {
+  const section = document.getElementById(sectionId);
+  if (section) {
+    observer3.observe(section);
+  }
+});
+
+//GALLERY TITLE
+const sections4 = ["gallery"];
+const galleryTitle = document.querySelector(".gallery-title");
+
+const observerOptions4 = {
+  root: null, // Use the viewport as the root
+  rootMargin: "0px 0px 0px 0px",
+  threshold: 0.1,
+};
+
+const observer4 = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      galleryTitle.classList.remove("scale-0");
+      galleryTitle.classList.add("scale-100");
+    } else {
+      galleryTitle.classList.remove("scale-100");
+      galleryTitle.classList.add("scale-0");
+    }
+  });
+}, observerOptions4);
+
+sections4.forEach((sectionId) => {
+  const section = document.getElementById(sectionId);
+  if (section) {
+    observer4.observe(section);
+  }
+});
+
+//
+const sections5 = ["wedding-wishes"];
+const wishesTitle = document.querySelector(".wishes-title");
+
+const observerOptions5 = {
+  root: null, // Use the viewport as the root
+  rootMargin: "0px 0px 0px 0px",
+  threshold: 0,
+};
+
+const observer5 = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      wishesTitle.classList.remove("scale-0");
+      wishesTitle.classList.add("scale-100");
+    } else {
+      wishesTitle.classList.remove("scale-100");
+      wishesTitle.classList.add("scale-0");
+    }
+  });
+}, observerOptions5);
+
+sections5.forEach((sectionId) => {
+  const section = document.getElementById(sectionId);
+  if (section) {
+    observer5.observe(section);
+  }
 });
 
 // Script untuk membuka undangan dan mengizinkan scroll
