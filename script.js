@@ -81,9 +81,9 @@ window.addEventListener("DOMContentLoaded", function () {
           groom[i].classList.remove("opacity-0");
           groom[i].classList.add("animate-fade");
           groom[i].classList.add("opacity-100");
-          thanks[i].classList.remove("opacity-0");
-          thanks[i].classList.add("animate-fade");
-          thanks[i].classList.add("opacity-100");
+          thanks[i].classList.remove("animate-fade");
+          thanks[i].classList.remove("opacity-100");
+          thanks[i].classList.add("scale-0");
         } else {
           mempelai.classList.remove("scale-100");
           mempelai.classList.add("scale-0");
@@ -97,9 +97,10 @@ window.addEventListener("DOMContentLoaded", function () {
           groom[i].classList.remove("animate-fade");
           groom[i].classList.remove("opacity-100");
           groom[i].classList.add("opacity-0");
-          thanks[i].classList.remove("animate-fade");
-          thanks[i].classList.remove("opacity-100");
-          thanks[i].classList.add("opacity-0");
+
+          thanks[i].classList.remove("scale-0");
+          thanks[i].classList.add("animate-fade");
+          thanks[i].classList.add("opacity-100");
         }
       }
     });
