@@ -54,3 +54,21 @@ p {
   font-size: clamp(14px, 4.5vw, 3rem);
   font-weight: 300;
 }
+
+/* Gaya untuk container dan icon */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 3s linear infinite;
+}
+
+.animate-spin-pause {
+  animation-play-state: paused;
+}

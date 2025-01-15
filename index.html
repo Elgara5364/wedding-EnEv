@@ -10,6 +10,10 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Grey+Qo&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap"
       rel="stylesheet" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet" />
+
     <title>Wedding Invitation Enzo & Evan</title>
   </head>
   <body class="overflow-hidden scroll-smooth relative">
@@ -236,9 +240,13 @@
             id="countdown-label"
             class="text-2xl mt-2 uppercase font-semibold"></p>
         </div>
-        <button
-          class="mt-3 bg-[#6f615d] text-white py-2 md:text-lg lg:text-xl rounded-lg hover:bg-[#564a47] transition-all duration-300 px-5">
-          Simpan Tanggal
+        <button class="mt-3">
+          <a
+            href="https://www.google.com/calendar/render?action=TEMPLATE&text=Pernikahan+Enzo+dan+Evan&dates=20250125T090000Z/20250120T100000Z&details=Pernikahan&location=Palopo"
+            target="_blank"
+            class="bg-[#6f615d] text-white py-3 md:text-lg lg:text-xl rounded-lg hover:bg-[#564a47] transition-all duration-300 px-5"
+            >Simpan Tanggal</a
+          >
         </button>
       </div>
     </section>
@@ -379,6 +387,18 @@
       </div>
     </section>
     <!-- Thank You section -->
+
+    <div class="flex justify-end p-2 items-center fixed bottom-0 right-0">
+      <!-- Icon Compact Disk -->
+      <div
+        id="musicIcon"
+        class="size-16 border-4 border-[#6f615d] rounded-full flex justify-center items-center text-4xl bg-white cursor-pointer animate-spin text-[#6f615D]">
+        <i id="icon" class="fas fa-compact-disc"></i>
+        <!-- Icon awal -->
+      </div>
+      <!-- Audio -->
+      <audio id="audio" src="./music/instrument.mp3" autoplay loop></audio>
+    </div>
 
     <footer>
       <h6 class="text-[10px] flex justify-center bg-zinc-50 py-3">

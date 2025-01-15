@@ -81,9 +81,9 @@ window.addEventListener("DOMContentLoaded", function () {
           groom[i].classList.remove("opacity-0");
           groom[i].classList.add("animate-fade");
           groom[i].classList.add("opacity-100");
-          thanks[i].classList.remove("animate-fade");
-          thanks[i].classList.remove("opacity-100");
-          thanks[i].classList.add("scale-0");
+          thanks[i].classList.remove("scale-0");
+          thanks[i].classList.add("animate-fade");
+          thanks[i].classList.add("opacity-100");
         } else {
           mempelai.classList.remove("scale-100");
           mempelai.classList.add("scale-0");
@@ -97,10 +97,9 @@ window.addEventListener("DOMContentLoaded", function () {
           groom[i].classList.remove("animate-fade");
           groom[i].classList.remove("opacity-100");
           groom[i].classList.add("opacity-0");
-
-          thanks[i].classList.remove("scale-0");
-          thanks[i].classList.add("animate-fade");
-          thanks[i].classList.add("opacity-100");
+          thanks[i].classList.remove("animate-fade");
+          thanks[i].classList.remove("opacity-100");
+          thanks[i].classList.add("scale-0");
         }
       }
     });
@@ -538,5 +537,41 @@ document.addEventListener("DOMContentLoaded", function () {
       <h6 class="text-gray-300  mt-2">${formattedDate} pukul ${formattedTime}</h6>
     `;
     return div;
+  }
+});
+
+// MUSIC
+
+const audio = document.getElementById("audio");
+const musicIcon = document.getElementById("musicIcon");
+const iconElement = document.getElementById("icon");
+
+// Status awal
+let isPlaying = true;
+
+// Fungsi untuk play musik
+function playMusic() {
+  audio.play();
+  iconElement.classList.remove("fa-pause");
+  iconElement.classList.add("fa-compact-disc"); // Ubah ke icon pause
+  musicIcon.classList.remove("animate-spin-pause"); // Aktifkan animasi putar
+  isPlaying = true;
+}
+
+// Fungsi untuk pause musik
+function pauseMusic() {
+  audio.pause();
+  iconElement.classList.remove("fa-compact-disc");
+  iconElement.classList.add("fa-pause"); // Ubah kembali ke compact disk
+  // musicIcon.classList.add("animate-spin-pause"); // Hentikan animasi putar
+  isPlaying = false;
+}
+
+// Event listener untuk klik icon
+musicIcon.addEventListener("click", () => {
+  if (isPlaying) {
+    pauseMusic();
+  } else {
+    playMusic();
   }
 });
