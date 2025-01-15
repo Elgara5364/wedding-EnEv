@@ -51,7 +51,6 @@ window.addEventListener("DOMContentLoaded", function () {
   // HOME AND THANKYU SECT
   const bride = document.querySelectorAll(".bride");
   const brideImg = document.querySelector(".bride-img");
-  const thanks = document.querySelectorAll(".thanks");
   const groom = document.querySelectorAll(".groom");
   const groomImg = document.querySelector(".groom-img");
   const mempelai = document.querySelector(".mempelai");
@@ -81,9 +80,6 @@ window.addEventListener("DOMContentLoaded", function () {
           groom[i].classList.remove("opacity-0");
           groom[i].classList.add("animate-fade");
           groom[i].classList.add("opacity-100");
-          thanks[i].classList.remove("scale-0");
-          thanks[i].classList.add("animate-fade");
-          thanks[i].classList.add("opacity-100");
         } else {
           mempelai.classList.remove("scale-100");
           mempelai.classList.add("scale-0");
@@ -97,9 +93,6 @@ window.addEventListener("DOMContentLoaded", function () {
           groom[i].classList.remove("animate-fade");
           groom[i].classList.remove("opacity-100");
           groom[i].classList.add("opacity-0");
-          thanks[i].classList.remove("animate-fade");
-          thanks[i].classList.remove("opacity-100");
-          thanks[i].classList.add("scale-0");
         }
       }
     });
@@ -151,7 +144,7 @@ sections3.forEach((sectionId) => {
 });
 
 //GALLERY TITLE
-const sections4 = ["gallery"];
+const sections4 = ["gallery", "thank-you"];
 const galleryTitle = document.querySelector(".gallery-title");
 
 const observerOptions4 = {
@@ -208,12 +201,93 @@ sections5.forEach((sectionId) => {
   }
 });
 
+// THANK YOU SECt
+const sections6 = ["thank-you"];
+const thankyou = document.querySelector(".apreciate");
+const thankyou2 = document.querySelector(".apreciate2");
+
+const observerOptions6 = {
+  root: null, // Use the viewport as the root
+  rootMargin: "0px 0px 0px 0px",
+  threshold: 0.5,
+};
+
+const observer6 = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      thankyou.classList.remove("scale-0");
+      thankyou.classList.add("scale-100");
+      thankyou.classList.add("animate-fade");
+      thankyou2.classList.remove("scale-0");
+      thankyou2.classList.add("scale-100");
+      thankyou2.classList.add("animate-fade");
+    } else {
+      thankyou.classList.add("scale-0");
+      thankyou.classList.remove("scale-100");
+      thankyou.classList.remove("animate-fade");
+      thankyou2.classList.add("scale-0");
+      thankyou2.classList.remove("scale-100");
+      thankyou2.classList.remove("animate-fade");
+    }
+  });
+}, observerOptions6);
+
+sections6.forEach((sectionId) => {
+  const section = document.getElementById(sectionId);
+  if (section) {
+    observer6.observe(section);
+  }
+});
+
+// MUSIC
+const audio = document.getElementById("audio");
+const musicIcon = document.getElementById("musicIcon");
+const iconElement = document.getElementById("icon");
+
+// Status awal
+let isPlaying = false;
+
+// Fungsi untuk play musik
+function playMusic() {
+  audio.play();
+  iconElement.classList.remove("fa-pause");
+  iconElement.classList.add("fa-compact-disc"); // Ubah ke icon pause
+  musicIcon.classList.remove("animate-spin-pause"); // Aktifkan animasi putar
+  isPlaying = true;
+}
+
+// Fungsi untuk pause musik
+function pauseMusic() {
+  audio.pause();
+  iconElement.classList.remove("fa-compact-disc");
+  iconElement.classList.add("fa-pause"); // Ubah kembali ke compact disk
+  // musicIcon.classList.add("animate-spin-pause"); // Hentikan animasi putar
+  isPlaying = false;
+}
+
+// Event listener untuk klik icon
+musicIcon.addEventListener("click", () => {
+  if (isPlaying) {
+    pauseMusic();
+  } else {
+    playMusic();
+  }
+});
+
 // Script untuk membuka undangan dan mengizinkan scroll
 document.getElementById("buka-undangan").addEventListener("click", function () {
   document.body.style.overflow = "auto"; // Izinkan scroll
   // setTimeout(() => {
   document.getElementById("home").scrollIntoView({ behavior: "smooth" }); // Scroll ke konten
   // Memberi waktu untuk memastikan overflow diterapkan
+
+  const musicIcon = document.getElementById("musicIcon");
+  musicIcon.classList.remove("scale-0");
+  musicIcon.classList.remove("opacity-0");
+  musicIcon.classList.add("scale-100");
+  musicIcon.classList.add("opacity-100");
+  // musicIcon.classList.add("flex");
+  playMusic();
 });
 
 //NAVBAR fn
@@ -537,41 +611,5 @@ document.addEventListener("DOMContentLoaded", function () {
       <h6 class="text-gray-300  mt-2">${formattedDate} pukul ${formattedTime}</h6>
     `;
     return div;
-  }
-});
-
-// MUSIC
-
-const audio = document.getElementById("audio");
-const musicIcon = document.getElementById("musicIcon");
-const iconElement = document.getElementById("icon");
-
-// Status awal
-let isPlaying = true;
-
-// Fungsi untuk play musik
-function playMusic() {
-  audio.play();
-  iconElement.classList.remove("fa-pause");
-  iconElement.classList.add("fa-compact-disc"); // Ubah ke icon pause
-  musicIcon.classList.remove("animate-spin-pause"); // Aktifkan animasi putar
-  isPlaying = true;
-}
-
-// Fungsi untuk pause musik
-function pauseMusic() {
-  audio.pause();
-  iconElement.classList.remove("fa-compact-disc");
-  iconElement.classList.add("fa-pause"); // Ubah kembali ke compact disk
-  // musicIcon.classList.add("animate-spin-pause"); // Hentikan animasi putar
-  isPlaying = false;
-}
-
-// Event listener untuk klik icon
-musicIcon.addEventListener("click", () => {
-  if (isPlaying) {
-    pauseMusic();
-  } else {
-    playMusic();
   }
 });
