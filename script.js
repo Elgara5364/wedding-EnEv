@@ -7,11 +7,18 @@ function getQueryParam(param) {
 // Mengambil parameter 'name' dari query string
 const guestName = getQueryParam("name");
 
-// Mengubah teks di halaman jika 'name' ditemukan
-const welcomeText = document.getElementById("welcomeText");
-if (guestName) {
-  welcomeText.textContent = `${guestName}`;
+function formatName(name) {
+  const words = name.split(" "); // Pisahkan nama berdasarkan spasi
+  if (words.length > 2) {
+    // Jika lebih dari dua kata, pindahkan kata ketiga ke baris baru
+    return `${words.slice(0, 2).join(" ")}<br>${words.slice(2).join(" ")}`;
+  }
+  return name; // Jika hanya dua kata atau kurang, kembalikan apa adanya
 }
+
+// Tampilkan nama yang sudah diformat
+const formattedName = formatName(guestName);
+document.getElementById("guestName").innerHTML = formattedName;
 
 // Atur scroll ke atas saat halaman dimuat
 window.addEventListener("beforeunload", function () {
