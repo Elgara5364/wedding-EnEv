@@ -131,8 +131,9 @@ window.addEventListener("DOMContentLoaded", function () {
 //COUNTDOWN AND STREAMING
 const countdown = document.getElementById("countdown");
 const streamingTitle = document.querySelector(".streaming-title");
+const descStream = document.getElementById("desc-streaming");
 
-const sections3 = ["home", "countdown", "streaming"];
+const sections3 = ["countdown", "streaming"];
 
 const observerOptions3 = {
   root: null, // Use the viewport as the root
@@ -145,15 +146,17 @@ const observer3 = new IntersectionObserver((entries) => {
     if (entry.isIntersecting) {
       countdown.classList.remove("scale-0");
       countdown.classList.add("scale-100");
-
       streamingTitle.classList.remove("scale-0");
       streamingTitle.classList.add("scale-100");
+      descStream.classList.remove("opacity-0");
+      descStream.classList.add("animate-fade");
     } else {
       countdown.classList.remove("scale-100");
       countdown.classList.add("scale-0");
-
       streamingTitle.classList.remove("scale-100");
       streamingTitle.classList.add("scale-0");
+      descStream.classList.remove("animate-fade");
+      descStream.classList.add("opacity-0");
     }
   });
 }, observerOptions3);
@@ -166,8 +169,9 @@ sections3.forEach((sectionId) => {
 });
 
 //GALLERY TITLE
-const sections4 = ["gallery", "thank-you"];
+const sections4 = ["gallery", "location", "thank-you"];
 const galleryTitle = document.querySelector(".gallery-title");
+const weddingLocation = document.querySelector(".wedding-location");
 
 const observerOptions4 = {
   root: null, // Use the viewport as the root
@@ -180,9 +184,13 @@ const observer4 = new IntersectionObserver((entries) => {
     if (entry.isIntersecting) {
       galleryTitle.classList.remove("scale-0");
       galleryTitle.classList.add("scale-100");
+      weddingLocation.classList.remove("scale-0");
+      weddingLocation.classList.add("scale-100");
     } else {
       galleryTitle.classList.remove("scale-100");
       galleryTitle.classList.add("scale-0");
+      weddingLocation.classList.remove("scale-100");
+      weddingLocation.classList.add("scale-0");
     }
   });
 }, observerOptions4);
