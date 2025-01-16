@@ -1,3 +1,18 @@
+// Fungsi untuk membaca parameter query dari URL
+function getQueryParam(param) {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get(param);
+}
+
+// Mengambil parameter 'name' dari query string
+const guestName = getQueryParam("name");
+
+// Mengubah teks di halaman jika 'name' ditemukan
+const welcomeText = document.getElementById("welcomeText");
+if (guestName) {
+  welcomeText.textContent = `${guestName}`;
+}
+
 // Atur scroll ke atas saat halaman dimuat
 window.addEventListener("beforeunload", function () {
   window.scrollTo(0, 0); // Pastikan posisi kembali ke atas
