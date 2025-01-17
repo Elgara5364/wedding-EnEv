@@ -146,7 +146,7 @@ const sections3 = ["countdown", "streaming"];
 const observerOptions3 = {
   root: null, // Use the viewport as the root
   rootMargin: "0px 0px 0px 0px",
-  threshold: 0.5,
+  threshold: 0.1,
 };
 
 const observer3 = new IntersectionObserver((entries) => {
