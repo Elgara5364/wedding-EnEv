@@ -23,7 +23,7 @@ html {
 }
 
 h1 {
-  font-size: clamp(40px, 8vw + 50%, 55px);
+  font-size: clamp(35px, 7vw + 50%, 55px);
   font-size: 500;
 }
 
