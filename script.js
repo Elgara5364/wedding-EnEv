@@ -177,9 +177,8 @@ sections3.forEach((sectionId) => {
 });
 
 //GALLERY TITLE
-const sections4 = ["gallery", "location"];
+const sections4 = ["gallery"];
 const galleryTitle = document.querySelector(".gallery-title");
-const weddingLocation = document.querySelector(".wedding-location");
 
 const observerOptions4 = {
   root: null, // Use the viewport as the root
@@ -192,13 +191,9 @@ const observer4 = new IntersectionObserver((entries) => {
     if (entry.isIntersecting) {
       galleryTitle.classList.remove("scale-0");
       galleryTitle.classList.add("scale-100");
-      weddingLocation.classList.remove("scale-0");
-      weddingLocation.classList.add("scale-100");
     } else {
       galleryTitle.classList.remove("scale-100");
       galleryTitle.classList.add("scale-0");
-      weddingLocation.classList.remove("scale-100");
-      weddingLocation.classList.add("scale-0");
     }
   });
 }, observerOptions4);
@@ -274,6 +269,34 @@ sections6.forEach((sectionId) => {
   const section = document.getElementById(sectionId);
   if (section) {
     observer6.observe(section);
+  }
+});
+
+const sections7 = ["location"];
+const weddingLocation = document.querySelector(".wedding-location");
+
+const observerOptions7 = {
+  root: null, // Use the viewport as the root
+  rootMargin: "0px 0px 0px 0px",
+  threshold: 0.1,
+};
+
+const observer7 = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      weddingLocation.classList.remove("scale-0");
+      weddingLocation.classList.add("scale-100");
+    } else {
+      weddingLocation.classList.remove("scale-100");
+      weddingLocation.classList.add("scale-0");
+    }
+  });
+}, observerOptions7);
+
+sections7.forEach((sectionId) => {
+  const section = document.getElementById(sectionId);
+  if (section) {
+    observer7.observe(section);
   }
 });
 
@@ -624,7 +647,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Function to create wish element
   function createWishElement(wish) {
     const div = document.createElement("div");
-    div.className = "bg-white px-4 pt-1 pb-3 rounded-lg shadow";
+    div.className = "bg-white px-4 py-4 rounded-lg shadow";
 
     // Parse the timestamp
     const date = new Date(wish.timestamp);
