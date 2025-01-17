@@ -70,10 +70,14 @@ window.addEventListener("DOMContentLoaded", function () {
           // If the section is in view, add the class to change text color
           mempelai.classList.remove("scale-0");
           mempelai.classList.add("scale-100");
-          brideImg.classList.remove("scale-0");
+          brideImg.classList.remove("scale-20");
           brideImg.classList.add("scale-100");
-          groomImg.classList.remove("scale-0");
+          brideImg.classList.remove("opacity-0");
+          brideImg.classList.add("opacity-100");
+          groomImg.classList.remove("scale-20");
           groomImg.classList.add("scale-100");
+          groomImg.classList.remove("opacity-0");
+          groomImg.classList.add("opacity-100");
           bride[i].classList.remove("opacity-0");
           bride[i].classList.add("animate-fade");
           bride[i].classList.add("opacity-100");
@@ -83,10 +87,14 @@ window.addEventListener("DOMContentLoaded", function () {
         } else {
           mempelai.classList.remove("scale-100");
           mempelai.classList.add("scale-0");
-          brideImg.classList.add("scale-0");
-          brideImg.classList.add("scale-0");
+          brideImg.classList.add("scale-20");
+          brideImg.classList.remove("scale-100");
           groomImg.classList.remove("scale-100");
-          groomImg.classList.add("scale-0");
+          groomImg.classList.add("scale-20");
+          brideImg.classList.add("opacity-0");
+          brideImg.classList.remove("opacity-100");
+          groomImg.classList.remove("opacity-100");
+          groomImg.classList.add("opacity-0");
           bride[i].classList.remove("animate-fade");
           bride[i].classList.remove("opacity-100");
           bride[i].classList.add("opacity-0");
@@ -169,7 +177,7 @@ sections3.forEach((sectionId) => {
 });
 
 //GALLERY TITLE
-const sections4 = ["gallery", "location", "thank-you"];
+const sections4 = ["gallery", "location"];
 const galleryTitle = document.querySelector(".gallery-title");
 const weddingLocation = document.querySelector(".wedding-location");
 
