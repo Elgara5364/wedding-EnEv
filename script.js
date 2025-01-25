@@ -402,46 +402,55 @@ window.addEventListener("scroll", () => {
 });
 // NAVBAR fn
 
-//COUNTDOWN TIME FUNC
-const targetDate = new Date("2025-01-25T16:30:00");
-
-// Fungsi untuk memperbarui countdown
-function updateCountdown() {
-  const now = new Date();
-  const timeDifference = targetDate - now;
-
+// COUNTDOWN TIME FUNCTION
+document.addEventListener("DOMContentLoaded", function () {
   const countdownElement = document.getElementById("countdown");
   const countdownLabelElement = document.getElementById("countdown-label");
 
-  // Hitung hari, jam, menit
-  const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-  const hours = Math.floor(
-    (timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-  );
-  const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+  // Set the target date and time in UTC
+  const targetDateUTC = new Date(Date.UTC(2025, 0, 25, 8, 30, 0)); // January 25, 2025, 08:30 UTC
 
-  // Tentukan format tampilan
-  if (timeDifference <= 0) {
-    countdownElement.textContent = "0";
-    countdownLabelElement.textContent = "Waktu Habis";
-    clearInterval(interval);
-  } else if (days > 0) {
-    countdownElement.textContent = days;
-    countdownLabelElement.textContent = "Hari lagi";
-  } else if (hours > 0) {
-    countdownElement.textContent = hours;
-    countdownLabelElement.textContent = "Jam lagi";
-  } else if (minutes > 0) {
-    countdownElement.textContent = minutes;
-    countdownLabelElement.textContent = "Menit lagi";
+  // Function to update the countdown
+  function updateCountdown() {
+    const now = new Date(); // Current local time
+    const timeDifference = targetDateUTC - now; // Difference in milliseconds
+
+    if (timeDifference <= 0) {
+      // If the countdown is over
+      countdownElement.textContent = "0";
+      countdownLabelElement.textContent = "Waktu Habis";
+      clearInterval(interval); // Stop the interval
+      return;
+    }
+
+    // Calculate remaining days, hours, and minutes
+    const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+    const hours = Math.floor(
+      (timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    );
+    const minutes = Math.floor(
+      (timeDifference % (1000 * 60 * 60)) / (1000 * 60)
+    );
+
+    // Display the countdown
+    if (days > 0) {
+      countdownElement.textContent = days;
+      countdownLabelElement.textContent = "Hari lagi";
+    } else if (hours > 0) {
+      countdownElement.textContent = hours;
+      countdownLabelElement.textContent = "Jam lagi";
+    } else if (minutes > 0) {
+      countdownElement.textContent = minutes;
+      countdownLabelElement.textContent = "Menit lagi";
+    }
   }
-}
 
-// Jalankan fungsi setiap 1 detik
-const interval = setInterval(updateCountdown, 1000);
+  // Update the countdown every second
+  const interval = setInterval(updateCountdown, 1000);
 
-// Panggil sekali di awal untuk memastikan tampilan langsung diperbarui
-updateCountdown();
+  // Initial call to display the countdown immediately
+  updateCountdown();
+});
 
 //COUNTDOWN TIME FUNC
 
