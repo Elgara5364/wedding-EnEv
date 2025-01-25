@@ -403,7 +403,7 @@ window.addEventListener("scroll", () => {
 // NAVBAR fn
 
 //COUNTDOWN TIME FUNC
-const targetDate = new Date("2025-01-25T16:00:00");
+const targetDate = new Date("2025-01-25T16:30:00");
 
 // Fungsi untuk memperbarui countdown
 function updateCountdown() {
